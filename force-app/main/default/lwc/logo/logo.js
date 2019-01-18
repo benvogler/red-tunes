@@ -9,10 +9,10 @@ export default class Logo extends LightningElement {
 
     constructor() {
         super();
-        this.loadFontAwesome();
+        this.loadStylesAndResources();
     }
 
-    loadFontAwesome() {
+    loadStylesAndResources() {
 
         for (let url of [fontAwesome + '/css/all.css', heebo + '/css.css']) {
             let link = document.createElement('link');
@@ -53,7 +53,7 @@ export default class Logo extends LightningElement {
                 opacity: 0.8;
             }
             100% {
-                transform: scale(1);
+                transform: scale(.8);
                 opacity: 0;
             }
         }`;

@@ -16,7 +16,6 @@
 
 .red {
     color: #EE2E24;
-    margin-right: 8px;
 }
 
 .tunes {
@@ -26,7 +25,7 @@
 .ping-container {
     display: block;
     position: absolute;
-    transform: translate(-45px, -20px);
+    transform: translate(-100px, -75px);
 }
 .ping {
     display: block;
