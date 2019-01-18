@@ -1,0 +1,23 @@
+{
+  "name": "red-tunes",
+  "version": "1.0.0",
+  "description": "## Dev, Build and Test",
+  "main": "index.js",
+  "scripts": {
+    "nodemon": "./node_modules/.bin/nodemon",
+    "create:lwc": "sfdx force:lightning:component:create --type lwc -d force-app/main/default/lwc -n"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benvogler/red-tunes.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benvogler/red-tunes/issues"
+  },
+  "homepage": "https://github.com/benvogler/red-tunes#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}

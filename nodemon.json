@@ -1,0 +1,6 @@
+{
+    "watch": ["force-app"],
+    "exec": "sfdx force:source:push",
+    "ext": "cls,xml,json,js,trigger,cpm,css,design,svg,html",
+    "delay": "2000"
+}
