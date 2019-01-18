@@ -1,6 +1,6 @@
 import { LightningElement } from 'lwc';
 import fontAwesome from '@salesforce/resourceUrl/FontAwesome';
-import heebo from '@salesforce/resourceUrl/Heebo';
+import utils from 'c/utils';
 
 
 export default class Logo extends LightningElement {
@@ -9,19 +9,11 @@ export default class Logo extends LightningElement {
 
     constructor() {
         super();
-        this.loadStylesAndResources();
+        utils.loadStylesAndResources();
+        this.loadAnimations();
     }
 
-    loadStylesAndResources() {
-
-        for (let url of [fontAwesome + '/css/all.css', heebo + '/css.css']) {
-            let link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.type = 'text/css';
-            link.href = url;
-            document.head.appendChild(link);
-        }
-
+    loadAnimations() {
         let css = (_)=>_;
 
         let style = document.createElement('style');
@@ -31,12 +23,16 @@ export default class Logo extends LightningElement {
                 fill: #EE2E24;
                 transform: scale(1, 1) translate3d(0, -30px, 0);
             }
-            50% {
+            20% {
                 fill: #960000;
                 transform: scale(1.2, 1.2) translate3d(0, -24px, 0);
             }
-            95% {
+            38% {
                 fill: #EE2E24;
+            }
+            40% {
+                fill: #EE2E24;
+                transform: scale(1, 1) translate3d(0, -30px, 0);
             }
             100% {
                 fill: #EE2E24;
@@ -49,8 +45,12 @@ export default class Logo extends LightningElement {
                 transform: scale(.5);
                 opacity: 0;
             }
-            25% {
+            5% {
                 opacity: 0.8;
+            }
+            40% {
+                transform: scale(.8);
+                opacity: 0;
             }
             100% {
                 transform: scale(.8);

@@ -3,7 +3,7 @@
 }
 
 .logo {
-    animation: animateLogo 4s infinite ease-in-out;
+    animation: animateLogo 8s infinite ease-in-out;
     margin-right: 22px;
     height: 100px;
     width:  100px;
@@ -36,6 +36,6 @@
     transform-origin: center;
     animation-iteration-count: infinite;
     border: solid #EE2E24 3px;
-    animation-duration: 4s;
+    animation-duration: 8s;
     animation-name: ping;
 }
