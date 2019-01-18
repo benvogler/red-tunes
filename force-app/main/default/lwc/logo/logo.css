@@ -1,0 +1,42 @@
+.logo, .red, .tunes {
+    font-size: 100px;
+}
+
+.logo {
+    animation: animateLogo 4s infinite ease-in-out;
+    margin-right: 22px;
+    height: 100px;
+    width:  100px;
+}
+
+.red, .tunes {
+    font-family: 'Heebo';
+    font-weight: 800;
+}
+
+.red {
+    color: #EE2E24;
+    margin-right: 8px;
+}
+
+.tunes {
+    color: black;
+}
+
+.ping-container {
+    display: block;
+    position: absolute;
+    transform: translate(-45px, -20px);
+}
+.ping {
+    display: block;
+    position: absolute;
+    border-radius: 100%;
+    padding: 150px;
+    transform: scale(.25);
+    transform-origin: center;
+    animation-iteration-count: infinite;
+    border: solid #EE2E24 3px;
+    animation-duration: 4s;
+    animation-name: ping;
+}
