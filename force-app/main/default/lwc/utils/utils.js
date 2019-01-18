@@ -1,4 +1,6 @@
 import { styles } from 'c/styles';
+import heebo from '@salesforce/resourceUrl/Heebo';
+import fontAwesome from '@salesforce/resourceUrl/FontAwesome';
 
 let stylesLoaded = false;
 
@@ -16,7 +18,7 @@ export default {
     /**
      * Load any styles that ignore the Shadow DOM from the `styles` component
      */
-    loadStyles() {
+    loadStylesAndResources() {
         if (stylesLoaded) return;
         stylesLoaded = true;
         
@@ -24,5 +26,13 @@ export default {
         style.type = 'text/css';
         style.innerHTML = styles;
         document.body.appendChild(style);
+
+        for (let url of [fontAwesome + '/css/all.css', heebo + '/css.css']) {
+            let link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = url;
+            document.head.appendChild(link);
+        }
     }
 }

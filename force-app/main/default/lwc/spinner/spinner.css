@@ -1,0 +1,19 @@
+.spinner {
+    animation: spin 2s infinite linear;
+    display: none;
+}
+
+.visible {
+    display: inline-block;
+}
+
+.wrapper.search {
+    top: 0;
+    right: 0;
+    position: absolute;
+    transform: translate(-12px, 8px);
+}
+
+.spinner.search {
+    opacity: .75;
+}
