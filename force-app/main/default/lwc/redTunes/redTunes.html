@@ -4,6 +4,10 @@
             <div class="header">
                 <c-logo></c-logo>
             </div>
+            <div class="body" if:true={spotifyTokensLoaded}>
+                <c-search client-id={spotifyClientId} client-secret={spotifyClientSecret}></c-search>
+                <c-player></c-player>
+            </div>
         </div>
     </lightning-card>
 </template>

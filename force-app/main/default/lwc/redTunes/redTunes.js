@@ -1,4 +1,4 @@
-import { LightningElement, api } from 'lwc';
+import { LightningElement, api, track } from 'lwc';
 import utils from 'c/utils';
 
 export default class RedTunes extends LightningElement {
@@ -9,9 +9,18 @@ export default class RedTunes extends LightningElement {
     @api
     spotifyClientSecret;
 
+    @track
+    spotifyTokensLoaded = false;
+
     constructor() {
         super();
-        utils.loadStyles();
-        console.log(this);
+        utils.loadStylesAndResources();
+        console.log(this.spotifyClientSecret);
+        console.log(this.spotifyClientId);
+        window.setTimeout(() => {
+            console.log(this.spotifyClientSecret);
+            console.log(this.spotifyClientId);
+            this.spotifyTokensLoaded = true;
+        }, 1000);
     }
 }
