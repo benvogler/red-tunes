@@ -1,8 +1,8 @@
 <template>
-    <div class="container">
-        <div class="search">
-            <input type="text" value={search} onchange={handleSearch}>
-            <i class={searchIconClasses}></i>
+    <div class="search">
+        <div>
+            <input type="text" onchange={handleSearch}>
+            <i class={searchIconClasses} onclick={search}></i>
             <c-spinner in-search=true spin={searching}></c-spinner>
         </div>
     </div>

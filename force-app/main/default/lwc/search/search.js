@@ -1,14 +1,13 @@
 import { LightningElement, track, api, wire } from 'lwc';
 import utils from 'c/utils';
-import authenticate from '@salesforce/apex/SpotifyAPI.authenticate';
+import spotifyAuthenticate from '@salesforce/apex/SpotifyAPI.authenticate';
+import spotifySearch from '@salesforce/apex/SpotifyAPI.search';
 
 export default class Search extends LightningElement {
 
     @api clientId;
     @api clientSecret;
     authorization;
-    
-    @track search = '';
 
     @track searching;
 
@@ -18,15 +17,6 @@ export default class Search extends LightningElement {
         super();
         utils.loadStylesAndResources();
         this.toggleSearching(false);
-        window.setTimeout(() => {
-            console.log(this.clientId);
-            console.log(this.clientSecret);
-            /*
-            authenticate({clientId: this.clientId, clientSecret: this.clientSecret}).then(res => {
-                console.log(res);
-                console.log(JSON.parse(res));
-            })*/
-        }, 2000);
     }
 
     toggleSearching(value) {
@@ -36,10 +26,24 @@ export default class Search extends LightningElement {
             this.searching = value;
         }
 
-        this.searchIconClasses.replace(' visible', '');
+        this.searchIconClasses = this.searchIconClasses.replace(' visible', '');
 
         if (!this.searching) {
             this.searchIconClasses += ' visible';
         }
+    }
+
+    async search(event) {
+        let searchValue = this.template.querySelector('input').value;
+        this.toggleSearching(true);
+        
+        let res = await spotifyAuthenticate({clientId: this.clientId, clientSecret: this.clientSecret});
+        res = JSON.parse(res);
+
+        res = await spotifySearch({token: res.access_token, query: escape(searchValue)});
+        res = JSON.parse(res);
+        
+        this.toggleSearching(false);
+        this.dispatchEvent(new CustomEvent('search', { detail: res }));
     }
 }

@@ -12,7 +12,12 @@ export default {
      * @param  {...any} params params to be passed directly to console.log
      */
     log(...params) {
-        console.log(JSON.parse(JSON.stringify(...params)));
+        let copies = [];
+        for (let param of params) {
+            if (typeof params === 'object') copies.push(JSON.parse(JSON.stringify(param)));
+            else copies.push(param);
+        }
+        console.log(...copies);
     },
 
     /**

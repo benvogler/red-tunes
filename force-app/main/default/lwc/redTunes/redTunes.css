@@ -1,9 +1,42 @@
 .header {
     display: flex;
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 35px;
 }
+
 
 .container {
     padding: 2rem 1.5rem;
+    height: calc(100vh - (2rem + 32px + .75rem + .75rem + 90px + 4rem));
+}
+
+.body {
+    height: calc(100% - 189px);
+    position: relative;
+}
+
+.slds-card .slds-card__header {
+    display: none;
+}
+
+.slds-card .slds-card__body {
+    margin: 0;
+} 
+
+c-player {
+    position: absolute;
+    bottom: 0;
+    padding-bottom: inherit;
+}
+
+c-search {
+    height: min-content;
+}
+
+c-search-result {
+    margin-bottom: 20px;
+}
+
+c-search-result:nth-last-of-type(4), c-search-result:nth-last-of-type(3), c-search-result:nth-last-of-type(2), c-search-result:last-of-type {
+    margin-bottom: 0;
 }

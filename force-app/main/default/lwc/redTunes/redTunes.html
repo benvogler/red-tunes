@@ -1,13 +1,22 @@
 <template>
-    <lightning-card>
+    <div class="slds-card">
         <div class="container">
             <div class="header">
-                <c-logo></c-logo>
+                <c-logo is-playing={isPlaying}></c-logo>
             </div>
-            <div class="body" if:true={spotifyTokensLoaded}>
-                <c-search client-id={spotifyClientId} client-secret={spotifyClientSecret}></c-search>
-                <c-player></c-player>
+            <div class="body slds-grid slds-grid_align-center" if:true={spotifyTokensLoaded}>
+                <div class="slds-col" style="max-width: 100%">
+                    <div style="margin-bottom: 20px">
+                        <c-search client-id={spotifyClientId} client-secret={spotifyClientSecret} onsearch={handleSearch}></c-search>
+                    </div>
+                    <div class="slds-grid slds-gutters slds-wrap slds-grid_align-center" style="max-height: 440px; overflow-y: auto">
+                        <template for:each={songs} for:item="song">
+                            <c-search-result class="slds-col" onplay={handlePlay} song={song} key={song.id}></c-search-result>
+                        </template>
+                    </div>
+                </div>
+                <c-player song={selectedSong} client-id={spotifyClientId} client-secret={spotifyClientSecret}></c-player>
             </div>
         </div>
-    </lightning-card>
+    </div>
 </template>

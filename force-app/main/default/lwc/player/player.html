@@ -1,4 +1,35 @@
 <template>
-    <div>
+    <div class={playerClasses}>
+        <template if:true={song}>
+            <img class="cover" src={_song.thumbnails.medium.url} />
+        </template>
+        <div class="content">
+            <div class="top">
+                <template if:true={_song}>
+                    <p class="song">{_song.name}</p>
+                    <p class="artist">{_song.artistsNames}</p>
+                </template>
+                <template if:false={_song}>
+                    <p class="song">No song selected</p>
+                    <p class="artist"></p>
+                </template>
+            </div>
+            <div class="bottom">
+                <div class="time-bar">
+                    <template if:true={_song}>
+                        <span class="time">0:00</span>
+                    </template>
+                    <span class="bar"></span>
+                    <template if:true={_song}>
+                        <span class="time">{_songDuration}</span>
+                    </template>
+                </div>
+                <div class="buttons">
+                    <i class="fas fa-step-backward"></i>
+                    <i class="fas fa-play"></i>
+                    <i class="fas fa-step-forward"></i>
+                </div>
+            </div>
+        </div>
     </div>
 </template>

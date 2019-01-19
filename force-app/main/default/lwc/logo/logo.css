@@ -3,15 +3,23 @@
 }
 
 .logo {
-    animation: animateLogo 8s infinite ease-in-out;
     margin-right: 22px;
     height: 100px;
     width:  100px;
 }
 
+.logo.waiting {
+    animation: animateLogo 8s infinite ease-in-out;
+}
+
+.logo.playing {
+    animation: color 4s infinite ease-in-out;
+}
+
 .red, .tunes {
     font-family: 'Heebo';
     font-weight: 800;
+    letter-spacing: -4px;
 }
 
 .red {
@@ -38,4 +46,28 @@
     border: solid #EE2E24 3px;
     animation-duration: 8s;
     animation-name: ping;
+}
+  
+.logo-wrapper {
+    animation: dance 1.2s infinite linear;
+    display: inline-block;
+    animation-delay: 3s;
+}
+  
+.pulse {
+    display: inline-block;
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0);
+    cursor: pointer;
+    box-shadow: 0 0 0 red;
+    animation: pulse .6s infinite;
+    transform: translate(-155px, -35px);
+}
+
+.logo-container {
+    transform: translateY(-30px);
+    display: inline-block;
 }

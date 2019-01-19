@@ -9,11 +9,10 @@
 
 .wrapper.search {
     top: 0;
-    right: 0;
     position: absolute;
-    transform: translate(-12px, 8px);
+    transform: translate(-30px, 7px);
 }
 
 .spinner.search {
-    opacity: .75;
+    opacity: .5;
 }

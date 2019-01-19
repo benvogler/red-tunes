@@ -1,0 +1,28 @@
+<template>
+    <div class="card">
+        <template if:true={song.thumbnails.medium}>
+            <img class="cover" src={song.thumbnails.medium.url} />
+        </template>
+        <div class="play">
+            <i class="fas fa-play" onclick={play}></i>
+        </div>
+        <div class="content">
+            <div class="top">
+                <p class="song">{song.name}</p>
+                <p class="artist">{song.artistNames}</p>
+            </div>
+            <!-- <div class="bottom">
+                <div class="time-bar">
+                    <span class="time">1:07</span>
+                    <span class="bar"></span>
+                    <span class="time">2:57</span>
+                </div>
+                <div class="buttons">
+                    <i class="fas fa-step-backward"></i>
+                    <i class="fas fa-play"></i>
+                    <i class="fas fa-step-forward"></i>
+                </div>
+            </div>-->
+        </div>
+    </div>
+</template>

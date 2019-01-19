@@ -14,5 +14,11 @@ export class Styles extends LightningElement {
  * as it's not possible in Aura components.
  */
 export const styles = css`
-/* Put css here */
+    c-search-result .song, c-search-result .artist {
+        /* I think this gets sanitized? of all the things to sanitize, THIS gets sanitized?
+           Anyway, that's why it's here and not in searchResult.css
+           Excellent job lightning team!
+        */
+        -webkit-box-orient: vertical;
+    }
 `;

@@ -1,0 +1,71 @@
+.player {
+    background-color: rgb(30, 26, 43);
+    display: flex;
+    padding: 10px 20px 10px 10px;
+    border-radius: 5px;
+    max-width: 600px;
+    box-shadow: 0 0 20px 7px rgba(0, 0, 0, .1);
+    width: 100%;
+    color: white;
+    font-family: Lato;
+}
+
+.player.expand {
+    width: 600px;
+}
+
+.cover {
+    height: 220px;
+    width: 220px;
+}
+  
+.content, .cover {
+    display: inline-block;
+}
+  
+.content {
+    margin-left: 20px;
+    width: 100%;
+}
+  
+.song {
+    font-weight: 900;
+    font-size: 24px;
+    margin: 10px 0 0 0;
+}
+  
+.artist {
+    font-weight: 400;
+    font-size: 20px;
+    margin: 6px 0 20px 0;
+}
+  
+.bar {
+    width: 100%;
+    height: 4px;
+    display: inline-block;
+    background-color: white;
+    border-radius: 4px;
+    margin: 0 8px;
+}
+  
+.time-bar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+  
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+  
+.bottom, .top {
+    height: 50%;
+}
+
+.buttons i {
+    cursor: pointer;
+}

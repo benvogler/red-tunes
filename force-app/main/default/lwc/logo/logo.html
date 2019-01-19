@@ -1,12 +1,24 @@
 <template>
     <span class="wrapper">
         <span>
-            <span class="ping-container">
-                <div class="ping"></div>
-            </span>
-            <svg class="logo">
-                <use xlink:href={musicIcon}></use>
-            </svg>
+            <template if:true={_isPlaying}>
+                <span class="logo-container">
+                    <span class="logo-wrapper">
+                        <svg class="logo playing">
+                            <use xlink:href={musicIcon}></use>
+                        </svg>
+                    </span>
+                    <span class="pulse"></span>
+                </span>
+            </template>
+            <template if:false={_isPlaying}>
+                <span class="ping-container">
+                    <div class="ping"></div>
+                </span>
+                <svg class="logo waiting">
+                    <use xlink:href={musicIcon}></use>
+                </svg>
+            </template>
         </span>
         <span class="red">RED</span>
         <span class="tunes">TUNES</span>

@@ -3,24 +3,50 @@ import utils from 'c/utils';
 
 export default class RedTunes extends LightningElement {
 
-    @api
-    spotifyClientId;
+    @api spotifyClientId;
+    @api spotifyClientSecret;
+    @track spotifyTokensLoaded = false;
 
-    @api
-    spotifyClientSecret;
+    @track isPlaying = false;
 
-    @track
-    spotifyTokensLoaded = false;
+    @track songs = [];
+    @track selectedSong;
 
-    constructor() {
-        super();
+
+    connectedCallback() {
         utils.loadStylesAndResources();
-        console.log(this.spotifyClientSecret);
-        console.log(this.spotifyClientId);
-        window.setTimeout(() => {
-            console.log(this.spotifyClientSecret);
-            console.log(this.spotifyClientId);
-            this.spotifyTokensLoaded = true;
-        }, 1000);
+        if (!this.spotifyClientId || !this.spotifyClientSecret) return;
+        this.spotifyTokensLoaded = true;
+    }
+
+    handleSearch(data) {
+        utils.log(data.detail);
+        this.songs = data.detail.tracks.items.map(song => {
+            let thumbnails = {};
+            for (let image of song.album.images) {
+                switch (image.height) {
+                    case 640:
+                        thumbnails.large = image;
+                        break;
+                    case 300:
+                        thumbnails.medium = image;
+                        break;
+                    case 64:
+                        thumbnails.small = image;
+                        break;
+                }
+            }
+            console.log('thumbnails', thumbnails);
+            song.thumbnails = thumbnails;
+            song.artistsNames = song.artists.map(artist => artist.name).join(', ');
+            console.log('artists names', song.artistsNames);
+            return song;
+        });
+        utils.log('songs', this.songs);
+    }
+
+    handlePlay(data) {
+        this.selectedSong = data.detail;
+        this.isPlaying = true;
     }
 }

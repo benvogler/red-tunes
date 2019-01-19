@@ -1,14 +1,8 @@
-.container {
-    display: flex;
-    justify-content: center;
-}
-
 /* Semantic-UI edit */
 input {
     padding-right: 2.67142857em !important;
-    width: 400px;
-    max-width: 100%;
     border-radius: 500rem;
+    width: 100%;
     margin: 0;
     outline: 0;
     -webkit-appearance: none;
@@ -37,17 +31,23 @@ input:focus, input:active {
 
 .search {
     position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search > div {
+    width: 400px;
 }
 
 .search i {
     display: none;
     padding-top: 11px;
-    cursor: default;
     position: absolute;
+    cursor: pointer;
     line-height: 1;
     text-align: center;
-    top: 0;
-    right: 0;
     margin: 0;
     height: 100%;
     width: 2.67142857em;
@@ -59,8 +59,13 @@ input:focus, input:active {
 
 .search i.visible {
     display: inline-block;
+    z-index: 10;
 }
 
-.search > input:focus ~ i {
+.search > input:focus ~ i.visible {
     opacity: 1;
+}
+
+.search i, c-spinner {
+    transform: translateX(-40px);
 }
